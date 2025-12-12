@@ -11,10 +11,11 @@ public class Main {
         System.out.println("Hello world!");
         ImageLanguageClassfier classifier =
                 new ImageLanguageClassfier("inference.onnx");
-        Mat img = Imgcodecs.imread("crop.jpg");
+        Mat img = Imgcodecs.imread("zh.jpg");
         // 预测图像
         ImageLanguageClassfier.PredictionResult result =
                 classifier.predict(img, 1);
+        classifier.printResult(result);
         System.out.println(result.getTimeStats().getLoadMs());
         System.out.println(result.getTimeStats().getInferenceMs());
         System.out.println(result.getTimeStats().getTotalMs());
